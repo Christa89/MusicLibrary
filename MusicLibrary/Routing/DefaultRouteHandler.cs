@@ -25,6 +25,7 @@ namespace App.MusicLibrary.Routing
             if (filePath == "~/")
             {
                 filePath = "~/views/index.cshtml";
+              //  filePath = "~/views/Login.cshtml";
             }
             else
             {
