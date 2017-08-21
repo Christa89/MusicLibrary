@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLibrary", "MusicLibrary\MusicLibrary.csproj", "{B3260411-9385-475A-95E7-C5D538623E0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{C0C78F80-423A-4E57-A986-73E8D967156D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcess", "DataAcess\DataAcess.csproj", "{98D648C6-36F3-45DC-BE69-8E0B80B47A82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B3260411-9385-475A-95E7-C5D538623E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3260411-9385-475A-95E7-C5D538623E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3260411-9385-475A-95E7-C5D538623E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C78F80-423A-4E57-A986-73E8D967156D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C78F80-423A-4E57-A986-73E8D967156D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C78F80-423A-4E57-A986-73E8D967156D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C78F80-423A-4E57-A986-73E8D967156D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D648C6-36F3-45DC-BE69-8E0B80B47A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D648C6-36F3-45DC-BE69-8E0B80B47A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D648C6-36F3-45DC-BE69-8E0B80B47A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D648C6-36F3-45DC-BE69-8E0B80B47A82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
