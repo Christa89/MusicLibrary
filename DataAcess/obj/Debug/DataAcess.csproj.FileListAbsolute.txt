@@ -1,0 +1,5 @@
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\DataAcess.dll
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\DataAcess.pdb
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.csprojResolveAssemblyReference.cache
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.dll
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.pdb
