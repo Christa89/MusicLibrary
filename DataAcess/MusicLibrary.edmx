@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MusicLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="Albm_id" />
+          </Key>
+          <Property Name="Albm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aritist_id" Type="int" />
+          <Property Name="Albm_Name" Type="varchar" MaxLength="100" />
+          <Property Name="RelaeseDate" Type="date" />
+          <Property Name="picture" Type="image" />
+        </EntityType>
+        <EntityType Name="tblArtists">
+          <Key>
+            <PropertyRef Name="Artist_id" />
+          </Key>
+          <Property Name="Artist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Artist_Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblGenre">
+          <Key>
+            <PropertyRef Name="Gnre_id" />
+          </Key>
+          <Property Name="Gnre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gnre_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblTracks">
+          <Key>
+            <PropertyRef Name="Trk_id" />
+          </Key>
+          <Property Name="Trk_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Trk_name" Type="varchar" MaxLength="100" />
+          <Property Name="albm_id" Type="int" />
+          <Property Name="Gnre_id" Type="int" />
+        </EntityType>
+        <Association Name="FK_tblAlbum_tblArtists">
+          <End Role="tblArtists" Type="Self.tblArtists" Multiplicity="0..1" />
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArtists">
+              <PropertyRef Name="Artist_id" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="Aritist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTracks_tblAlbum">
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="0..1" />
+          <End Role="tblTracks" Type="Self.tblTracks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAlbum">
+              <PropertyRef Name="Albm_id" />
+            </Principal>
+            <Dependent Role="tblTracks">
+              <PropertyRef Name="albm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTracks_tblGenre">
+          <End Role="tblGenre" Type="Self.tblGenre" Multiplicity="0..1" />
+          <End Role="tblTracks" Type="Self.tblTracks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGenre">
+              <PropertyRef Name="Gnre_id" />
+            </Principal>
+            <Dependent Role="tblTracks">
+              <PropertyRef Name="Gnre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicLibraryModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAlbum" EntityType="Self.tblAlbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblArtists" EntityType="Self.tblArtists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGenre" EntityType="Self.tblGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTracks" EntityType="Self.tblTracks" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblAlbum_tblArtists" Association="Self.FK_tblAlbum_tblArtists">
+            <End Role="tblArtists" EntitySet="tblArtists" />
+            <End Role="tblAlbum" EntitySet="tblAlbum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTracks_tblAlbum" Association="Self.FK_tblTracks_tblAlbum">
+            <End Role="tblAlbum" EntitySet="tblAlbum" />
+            <End Role="tblTracks" EntitySet="tblTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTracks_tblGenre" Association="Self.FK_tblTracks_tblGenre">
+            <End Role="tblGenre" EntitySet="tblGenre" />
+            <End Role="tblTracks" EntitySet="tblTracks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MusicLibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblAlbum">
+          <Key>
+            <PropertyRef Name="Albm_id" />
+          </Key>
+          <Property Name="Albm_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aritist_id" Type="Int32" />
+          <Property Name="Albm_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RelaeseDate" Type="DateTime" Precision="0" />
+          <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="tblArtist" Relationship="Self.FK_tblAlbum_tblArtists" FromRole="tblAlbum" ToRole="tblArtists" />
+          <NavigationProperty Name="tblTracks" Relationship="Self.FK_tblTracks_tblAlbum" FromRole="tblAlbum" ToRole="tblTracks" />
+        </EntityType>
+        <EntityType Name="tblArtist">
+          <Key>
+            <PropertyRef Name="Artist_id" />
+          </Key>
+          <Property Name="Artist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblAlbums" Relationship="Self.FK_tblAlbum_tblArtists" FromRole="tblArtists" ToRole="tblAlbum" />
+        </EntityType>
+        <EntityType Name="tblGenre">
+          <Key>
+            <PropertyRef Name="Gnre_id" />
+          </Key>
+          <Property Name="Gnre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gnre_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblTracks" Relationship="Self.FK_tblTracks_tblGenre" FromRole="tblGenre" ToRole="tblTracks" />
+        </EntityType>
+        <EntityType Name="tblTrack">
+          <Key>
+            <PropertyRef Name="Trk_id" />
+          </Key>
+          <Property Name="Trk_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Trk_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="albm_id" Type="Int32" />
+          <Property Name="Gnre_id" Type="Int32" />
+          <NavigationProperty Name="tblAlbum" Relationship="Self.FK_tblTracks_tblAlbum" FromRole="tblTracks" ToRole="tblAlbum" />
+          <NavigationProperty Name="tblGenre" Relationship="Self.FK_tblTracks_tblGenre" FromRole="tblTracks" ToRole="tblGenre" />
+        </EntityType>
+        <Association Name="FK_tblAlbum_tblArtists">
+          <End Role="tblArtists" Type="Self.tblArtist" Multiplicity="0..1" />
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArtists">
+              <PropertyRef Name="Artist_id" />
+            </Principal>
+            <Dependent Role="tblAlbum">
+              <PropertyRef Name="Aritist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTracks_tblAlbum">
+          <End Role="tblAlbum" Type="Self.tblAlbum" Multiplicity="0..1" />
+          <End Role="tblTracks" Type="Self.tblTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAlbum">
+              <PropertyRef Name="Albm_id" />
+            </Principal>
+            <Dependent Role="tblTracks">
+              <PropertyRef Name="albm_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblTracks_tblGenre">
+          <End Role="tblGenre" Type="Self.tblGenre" Multiplicity="0..1" />
+          <End Role="tblTracks" Type="Self.tblTrack" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGenre">
+              <PropertyRef Name="Gnre_id" />
+            </Principal>
+            <Dependent Role="tblTracks">
+              <PropertyRef Name="Gnre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MusicLibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tblAlbums" EntityType="Self.tblAlbum" />
+          <EntitySet Name="tblArtists" EntityType="Self.tblArtist" />
+          <EntitySet Name="tblGenres" EntityType="Self.tblGenre" />
+          <EntitySet Name="tblTracks" EntityType="Self.tblTrack" />
+          <AssociationSet Name="FK_tblAlbum_tblArtists" Association="Self.FK_tblAlbum_tblArtists">
+            <End Role="tblArtists" EntitySet="tblArtists" />
+            <End Role="tblAlbum" EntitySet="tblAlbums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTracks_tblAlbum" Association="Self.FK_tblTracks_tblAlbum">
+            <End Role="tblAlbum" EntitySet="tblAlbums" />
+            <End Role="tblTracks" EntitySet="tblTracks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTracks_tblGenre" Association="Self.FK_tblTracks_tblGenre">
+            <End Role="tblGenre" EntitySet="tblGenres" />
+            <End Role="tblTracks" EntitySet="tblTracks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MusicLibraryModelStoreContainer" CdmEntityContainer="MusicLibraryEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MusicLibraryModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAlbums">
+            <EntityTypeMapping TypeName="MusicLibraryModel.tblAlbum">
+              <MappingFragment StoreEntitySet="tblAlbum">
+                <ScalarProperty Name="Albm_id" ColumnName="Albm_id" />
+                <ScalarProperty Name="Aritist_id" ColumnName="Aritist_id" />
+                <ScalarProperty Name="Albm_Name" ColumnName="Albm_Name" />
+                <ScalarProperty Name="RelaeseDate" ColumnName="RelaeseDate" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblArtists">
+            <EntityTypeMapping TypeName="MusicLibraryModel.tblArtist">
+              <MappingFragment StoreEntitySet="tblArtists">
+                <ScalarProperty Name="Artist_id" ColumnName="Artist_id" />
+                <ScalarProperty Name="Artist_Name" ColumnName="Artist_Name" />
+                <ScalarProperty Name="Artist_Description" ColumnName="Artist_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGenres">
+            <EntityTypeMapping TypeName="MusicLibraryModel.tblGenre">
+              <MappingFragment StoreEntitySet="tblGenre">
+                <ScalarProperty Name="Gnre_id" ColumnName="Gnre_id" />
+                <ScalarProperty Name="Gnre_Name" ColumnName="Gnre_Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTracks">
+            <EntityTypeMapping TypeName="MusicLibraryModel.tblTrack">
+              <MappingFragment StoreEntitySet="tblTracks">
+                <ScalarProperty Name="Trk_id" ColumnName="Trk_id" />
+                <ScalarProperty Name="Trk_name" ColumnName="Trk_name" />
+                <ScalarProperty Name="albm_id" ColumnName="albm_id" />
+                <ScalarProperty Name="Gnre_id" ColumnName="Gnre_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

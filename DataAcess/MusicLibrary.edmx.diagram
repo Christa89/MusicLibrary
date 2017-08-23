@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73c6868e4c7340bdb1c566eee358c65a" Name="Diagram1">
+        <EntityTypeShape EntityType="MusicLibraryModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicLibraryModel.tblAlbum" Width="1.5" PointX="3.375" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicLibraryModel.tblArtist" Width="1.5" PointX="1" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicLibraryModel.tblGenre" Width="1.5" PointX="2.625" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MusicLibraryModel.tblTrack" Width="1.5" PointX="7.25" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="MusicLibraryModel.FK_tblAlbum_tblArtists" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicLibraryModel.FK_tblTracks_tblAlbum" ManuallyRouted="false" />
+        <AssociationConnector Association="MusicLibraryModel.FK_tblTracks_tblGenre" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
