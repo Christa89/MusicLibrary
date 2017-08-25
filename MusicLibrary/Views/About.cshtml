@@ -1,5 +1,88 @@
-﻿@{
-    PageData["title"] = "AngularJS SPA | About";
-}
-<h2>About Us</h2>
-<p>Demo page.</p>
+﻿
+
+<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+    <div class="form-group row">
+        <label for="inputAName" class="col-sm-3 col-sm-push-1 col-form-label">Album Name</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="AlbumName" ng-model="album.Albm_Name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputMArtist" class="col-sm-3 col-sm-push-1 col-form-label">Music Artist</label>
+        <div class="col-sm-9">
+            <select ng-model="album.Aritist_id" class="form-control">
+                <option ng-repeat="Artist in  Artists" value="{{Artist.Artist_id}}">{{Artist.Artist_Name}}</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label for="inputRdate" class="col-sm-3 col-sm-push-1 col-form-label">Released Date</label>
+        <div class="col-sm-9">
+            <input type="date" class="form-control" id="inputPassword3" pleaceholder="date" ng-model="album.RelaeseDate">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputImg" class="col-sm-3 col-sm-push-1 col-form-label">Image of Album</label>
+        <div class="col-sm-9">
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="file"
+                   ng-model="file" base-sixty-four-input required maxsize="500" accept="image/*">
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-8">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" ng-click="">Reset</button>
+
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary" ng-click="insertAlbum(album)">Save</button>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+@*<div album-view-name>
+    </div>*@
+
+
+<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th> Album Name </th>
+                <th> Music Artist </th>
+                <th> Release Date </th>
+                <th> Edit </th>
+                <th align="center"> Delete </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="album in albums">
+                <td>{{album.Albm_Name}}</td>
+                <td>{{album.tblArtist.Artist_Name}}</td>
+                <td>{{album.RelaeseDate}}</td>
+                <td><img ng-src="~/Images/edit.png" width="25" height="25" /></td>
+                <td><img ng-src="~/Images/delete.jpg" width="25" height="25" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+

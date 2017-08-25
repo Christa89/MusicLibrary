@@ -1,0 +1,13 @@
+﻿
+<div class="row">
+    <div class="col-sm-12 col-md-6" ng-repeat="Album in albums">
+        <div class="thumbnail ">
+            <img data-ng-src="data:image/png;base64,{{Album.picture}}" data-err-src="images/jpg.jpg"
+                 class="img-thumbnail" width="304" height="236" />
+            <!--<div class="caption">
+                <h6>{{Album.Albm_Name}}</h6>
+                <p>{{Album.RelaeseDate}}</p>
+            </div>-->
+        </div>
+    </div>
+</div>

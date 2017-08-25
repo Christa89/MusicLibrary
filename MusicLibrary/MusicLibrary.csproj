@@ -133,7 +133,11 @@
     </Content>
     <Content Include="Content\app.less" />
     <Content Include="Content\variables.less" />
+    <Content Include="Directives\album-view-name.html" />
     <Content Include="Global.asax" />
+    <Content Include="Images\delete.jpg" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\jpg.jpg" />
     <Content Include="Scripts\controllers.js" />
     <Content Include="Scripts\controllers.spec.js">
       <DependentUpon>controllers.js</DependentUpon>
@@ -515,11 +519,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj">
+      <Project>{c0c78f80-423a-4e57-a986-73e8d967156d}</Project>
+      <Name>Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

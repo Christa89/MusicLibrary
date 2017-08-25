@@ -1,5 +1,10 @@
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\EntityFramework.dll
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\DataAcess.dll.config
 D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\DataAcess.dll
 D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\DataAcess.pdb
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\EntityFramework.xml
+D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.csprojResolveAssemblyReference.cache
 D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.dll
 D:\GitHub\MusicLibrary\MusicLibrary\DataAcess\obj\Debug\DataAcess.pdb

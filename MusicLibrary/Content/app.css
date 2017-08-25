@@ -1962,6 +1962,7 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #428bca;
   border-color: #357ebd;
+      width: -webkit-fill-available;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -1971,6 +1972,7 @@ fieldset[disabled] .btn-default.active {
   color: #ffffff;
   background-color: #3276b1;
   border-color: #285e8e;
+      width: -webkit-fill-available;
 }
 .btn-primary:active,
 .btn-primary.active,

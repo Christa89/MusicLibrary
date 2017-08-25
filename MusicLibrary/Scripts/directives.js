@@ -1,9 +1,13 @@
 ﻿'use strict';
+ 
+var ap = angular.module('app.directives', []);
 
-angular.module('app.directives', [])
+ ap.directive('albumViewName', function () {
 
-    .directive('appVersion', ['version', function (version) {
-        return function (scope, elm, attrs) {
-            elm.text(version);
-        };
-    }]);
+     return {
+         templateUrl: "Directives/album-view-name.html"
+        
+     };
+    
+     
+ });

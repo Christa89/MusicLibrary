@@ -18,7 +18,7 @@ namespace DataAcess
         {
             this.tblTracks = new HashSet<tblTrack>();
         }
-    
+         
         public int Albm_id { get; set; }
         public Nullable<int> Aritist_id { get; set; }
         public string Albm_Name { get; set; }
