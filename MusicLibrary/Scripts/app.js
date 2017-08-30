@@ -1,5 +1,7 @@
 ﻿'use strict';
 
+//, 'ng.httpLoader' httpMethodInterceptorProvider
+
 angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers', 'naif.base64'])
 
   
@@ -37,6 +39,9 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             });
 
         $locationProvider.html5Mode(true);
+       // httpMethodInterceptorProvider.whitelistLocalRequests();
+
+      
 
     }])
 
@@ -57,3 +62,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             $rootScope.layout = toState.layout;
         });
     }]);
+
+
+
+     

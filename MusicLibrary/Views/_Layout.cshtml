@@ -43,7 +43,8 @@
     </header>
 
     <div id="ui-view" class="container" ui-view data-tmpl-url="@Request.RequestContext.RouteData.DataTokens["templateUrl"]">
-        @RenderBody()
+        <div ng-http-loader template="~/Directives/Loading.html"></div>
+                @RenderBody()
     </div>
 
     <div>
@@ -53,7 +54,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/adonespitogo/angular-base64-upload/master/src/angular-base64-upload.js"></script>
-            @Scripts.Render("~/js/app")
+    <script src="~/Scripts/angular-loader.min.js"></script>
+                @Scripts.Render("~/js/app")
             @*
             google analytics
             ----------------

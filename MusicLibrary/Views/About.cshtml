@@ -57,6 +57,29 @@
 
 
 <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <input type="text" id="searchTxt" class="form-control" placeholder="Search....." ng-model="searchText[selectedSearch]" ng-init="searchText = {};selectedSearch='Albm_Name'">
+        </div>
+        <div class="col-sm-6">
+
+            <label class="checkbox-inline">
+                <input type="radio" name="CheckModel" value="Albm_Name" ng-model="selectedSearch" class="inline" ng-change="reLoad()"> Album Name <br>
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="CheckModel" value="tblArtist.Artist_Name" ng-model="selectedSearch" class="inline" ng-change="reLoad()"> Artist Name<br>
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="CheckModel" value="RelaeseDate" ng-model="selectedSearch" class="inline" ng-change="reLoad()"> Release Date<br>
+            </label>
+
+
+
+        </div>
+    </div>
+
+
+
     <table class="table table-responsive table-hover">
         <thead>
             <tr>
@@ -68,7 +91,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="album in albums">
+            <tr ng-repeat="album in albums |filter:searchText">
                 <td>{{album.Albm_Name}}</td>
                 <td>{{album.tblArtist.Artist_Name}}</td>
                 <td>{{album.RelaeseDate}}</td>
@@ -78,6 +101,7 @@
         </tbody>
     </table>
 </div>
+@*</div>*@
 
 
 

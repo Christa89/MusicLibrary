@@ -58,11 +58,17 @@ angular.module('app.controllers', [])
             });
         }
 
+        $scope.reLoad = function () {
+            $scope.searchText = "";
+        }
+
+
+    
 
         //$scope.onLoad = function (e, reader, file, fileList, fileOjects, fileObj) {
         //    alert('this is handler for file reader onload event!');
         //};
-
+        
         //function convertImageToDataURI(url, callback, outputFormat) {
         //    var img = new Image();
         //    img.crossOrigin = 'Anonymous';
