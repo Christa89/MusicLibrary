@@ -2001,6 +2001,7 @@ fieldset[disabled] .btn-primary.active {
   color: #ffffff;
   background-color: #f0ad4e;
   border-color: #eea236;
+   width: -webkit-fill-available;
 }
 .btn-warning:hover,
 .btn-warning:focus,
@@ -2010,6 +2011,7 @@ fieldset[disabled] .btn-primary.active {
   color: #ffffff;
   background-color: #ed9c28;
   border-color: #d58512;
+   width: -webkit-fill-available;
 }
 .btn-warning:active,
 .btn-warning.active,
@@ -2038,6 +2040,7 @@ fieldset[disabled] .btn-warning.active {
   color: #ffffff;
   background-color: #d9534f;
   border-color: #d43f3a;
+   width: -webkit-fill-available;
 }
 .btn-danger:hover,
 .btn-danger:focus,
@@ -2047,6 +2050,7 @@ fieldset[disabled] .btn-warning.active {
   color: #ffffff;
   background-color: #d2322d;
   border-color: #ac2925;
+   width: -webkit-fill-available;
 }
 .btn-danger:active,
 .btn-danger.active,

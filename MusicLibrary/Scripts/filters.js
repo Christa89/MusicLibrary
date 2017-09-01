@@ -1,9 +1,19 @@
 ﻿'use strict';
 
-angular.module('app.filters', [])
+var app = angular.module('app.filters', [])
 
-    .filter('interpolate', ['version', function (version) {
+    app.filter('interpolate', ['version', function (version) {
         return function (text) {
             return String(text).replace(/\%VERSION\%/mg, version);
         }
     }]);
+
+    //app.filter('startFrom', function () {
+    //    return function (input, start) {
+    //        if (input) {
+    //            start = +start;
+    //            return input.slice(start);
+    //        }
+    //        return [];
+    //    };
+    //});

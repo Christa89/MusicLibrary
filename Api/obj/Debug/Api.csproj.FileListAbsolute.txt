@@ -1,9 +1,9 @@
-D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\EntityFramework.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\Api.dll.config
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\Api.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\Api.pdb
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\Base64Url.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\DataAcess.dll
+D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\EntityFramework.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\EntityFramework.SqlServer.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\Newtonsoft.Json.dll
 D:\GitHub\MusicLibrary\MusicLibrary\Api\bin\System.Net.Http.Formatting.dll

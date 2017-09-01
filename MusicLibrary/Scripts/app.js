@@ -2,7 +2,7 @@
 
 //, 'ng.httpLoader' httpMethodInterceptorProvider
 
-angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers', 'naif.base64'])
+angular.module('app', ['ui.bootstrap' ,'ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers', 'naif.base64'])
 
   
     .config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
@@ -39,6 +39,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             });
 
         $locationProvider.html5Mode(true);
+      
        // httpMethodInterceptorProvider.whitelistLocalRequests();
 
       

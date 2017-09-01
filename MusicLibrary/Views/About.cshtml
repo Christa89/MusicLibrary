@@ -5,7 +5,8 @@
     <div class="form-group row">
         <label for="inputAName" class="col-sm-3 col-sm-push-1 col-form-label">Album Name</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputEmail3" placeholder="AlbumName" ng-model="album.Albm_Name">
+            <input type="hidden" ng-model="album.Albm_id">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="AlbumName" ng-model="album.Albm_Name" ng-value="Albm_Name">
         </div>
     </div>
     <div class="form-group row">
@@ -27,12 +28,17 @@
 
     <div class="form-group row">
         <label for="inputImg" class="col-sm-3 col-sm-push-1 col-form-label">Image of Album</label>
-        <div class="col-sm-9">
+        <div class="col-sm-9" ng-show="hide">
             <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" name="file"
                    ng-model="file" base-sixty-four-input required maxsize="500" accept="image/*">
+          
 
         </div>
-    </div>
+        <div class="col-sm-9" ng-show="!hide">
+            <img data-ng-src="data:image/png;base64,{{album.picture}}" width="150" height="75" class="img-thumbnail" />
+        </div>
+
+        </div>
 
     <div class="form-group row">
         <div class="col-sm-8">
@@ -41,8 +47,12 @@
             <button type="submit" class="btn btn-primary" ng-click="">Reset</button>
 
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-2" ng-hide="!hide">
             <button type="submit" class="btn btn-primary" ng-click="insertAlbum(album)">Save</button>
+        </div>
+
+        <div class="col-sm-2" ng-hide="hide">
+            <button type="submit" class="btn btn-danger"  ng-click="UpdateAlbum(album)">Update</button>
         </div>
 
 
@@ -78,29 +88,50 @@
         </div>
     </div>
 
+    <div class="row"  align="center">
+        
+        @*<ul class="pagination pagination-sm" ng-model="currentPage" total-items="totalItems" items-per-page="itemPerPage">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </ul>*@
 
+        @*<div class="text-center">
+            <uib-pagination total-items="totalItems" max-size="maxSize" ng-model="currentPage" items-per-page="itemsPerPage" ></uib-pagination>
+           
+        </div>*@
+    </div>
 
-    <table class="table table-responsive table-hover">
+    @*startFrom:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage*@
+    <table class="table table-responsive table-hover" >
         <thead>
             <tr>
+                <th ng-hide="true"> Id</th>
                 <th> Album Name </th>
                 <th> Music Artist </th>
                 <th> Release Date </th>
                 <th> Edit </th>
                 <th align="center"> Delete </th>
+                <th ng-hide="true">img</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="album in albums |filter:searchText">
+                <td ng-hide="true">{{album.Albm_id}}</td>
                 <td>{{album.Albm_Name}}</td>
                 <td>{{album.tblArtist.Artist_Name}}</td>
                 <td>{{album.RelaeseDate}}</td>
-                <td><img ng-src="~/Images/edit.png" width="25" height="25" /></td>
+                <td><img ng-src="~/Images/edit.png" width="25" height="25" ng-click="editAlbum(album)" /></td>
                 <td><img ng-src="~/Images/delete.jpg" width="25" height="25" /></td>
+                <td ng-hide="true">{{album.picture}}</td>
             </tr>
         </tbody>
     </table>
-</div>
+
+        
+    </div>
 @*</div>*@
 
 
