@@ -44,7 +44,7 @@
         <div class="col-sm-8">
         </div>
         <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary" ng-click="">Reset</button>
+            <button type="submit" class="btn btn-primary" ng-click="ClearControls()">Reset</button>
 
         </div>
         <div class="col-sm-2" ng-hide="!hide">
@@ -124,7 +124,7 @@
                 <td>{{album.tblArtist.Artist_Name}}</td>
                 <td>{{album.RelaeseDate}}</td>
                 <td><img ng-src="~/Images/edit.png" width="25" height="25" ng-click="editAlbum(album)" /></td>
-                <td><img ng-src="~/Images/delete.jpg" width="25" height="25" /></td>
+                <td><img ng-src="~/Images/delete.jpg" width="25" height="25" ng-click="deleteAlbum(album)" /></td>
                 <td ng-hide="true">{{album.picture}}</td>
             </tr>
         </tbody>

@@ -7,8 +7,39 @@
 angular.module('app.controllers', [])
 
     // Path: /
-    .controller('HomeCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('HomeCtrl', ['$scope', '$location', '$window', 'dataService', function ($scope, $location, $window, dataService) {
         $scope.$root.title = 'AngularJS SPA Template for Visual Studio';
+        $scope.hide = true;
+
+        var urlAlbum = 'http://localhost:8090/api/album';
+        getalbums(urlAlbum);
+        function getalbums(urlBase) {
+            dataService.getObject(urlAlbum).then(function (responce) {
+                $scope.albums = responce.data;
+                //$scope.viewby = 10;
+                //$scope.totalItems = responce.data.length;
+                //$scope.currentPage = 1;
+                //$scope.itemsPerPage = 5;
+                //$scope.maxSize = 5;
+
+            }, function (eror) {
+
+                alert(eror.message);
+            });
+        }
+
+        $scope.SetGrid = function () {
+
+            if ($scope.hide)
+            {
+                $scope.hide = false;
+            }
+            else
+            {
+                $scope.hide = true;
+            }
+           
+        };
 
     }])
 
@@ -17,12 +48,11 @@ angular.module('app.controllers', [])
 
         var urlAlbum = 'http://localhost:8090/api/album';
         var urlArtist = 'http://localhost:8090/api/Artist';
-
         $scope.hide = true;
      
 
         getalbums(urlAlbum);
-        console.log('hai i am fine')
+ 
         function getalbums(urlBase) {
             dataService.getObject(urlAlbum).then(function (responce) {
                 $scope.albums = responce.data;
@@ -31,26 +61,15 @@ angular.module('app.controllers', [])
                 $scope.currentPage = 1;
                 $scope.itemsPerPage = 5;
                 $scope.maxSize = 5;
-
+                 
             }, function (eror) {
 
                 alert(eror.message);
             });
         }
 
-        //$scope.$watch("currentPage", function () {
-        //    setPagingData($scope.currentPage);
-        //});
-
-        //function setPagingData(page) {
-        //    var pagedData = $scope.albums.slice(
-        //      (page - 1) * $scope.itemsPerPage,
-        //      page * $scope.itemsPerPage
-        //    );
-        //    $scope.albums = pagedData;
-        //}
-
         GetArtist(urlArtist);
+
         function GetArtist(urlArtist) {
             dataService.getObject(urlArtist).then(function (responce) {
                 $scope.Artists = responce.data
@@ -60,12 +79,12 @@ angular.module('app.controllers', [])
             });
         }
 
-      
         $scope.insertAlbum = function (album) {
             var urlAlbum = 'http://localhost:8090/api/album';
             album.picture = $scope.file.base64;
             dataService.insertObject(urlAlbum, album).then(function (responce) {
                 alert("Success");
+                getalbums(urlAlbum);
             }, function (eror) {
 
                 alert(eror.message);
@@ -83,13 +102,49 @@ angular.module('app.controllers', [])
             $scope.hide = false;
         }
 
-        $scope.UpdateAlbum = function () {
+        $scope.UpdateAlbum = function (album) {
+            var urlAlbum = 'http://localhost:8090/api/album';
+            album.ID = album.Albm_id;
+            dataService.updateObject(urlAlbum, album).then(function (response) {
+                alert("Success");
 
+                $scope.hide = true;
+                $scope.album.Albm_id = ""
+                $scope.album.Albm_Name = ""
+                $scope.album.RelaeseDate = $filter('date')(new Date(album.RelaeseDate), 'yyyy-MM-dd');
+                $scope.album.Aritist_id = ""
+                getalbums(urlAlbum);
 
+            }, function (error) {
+                alert(eror.message);
+            })
         }
 
         $scope.reLoad = function () {
             $scope.searchText = "";
+        }
+
+        $scope.ClearControls = function ClearControls()
+        {
+            $scope.hide = true;
+            $scope.album.Albm_id = ""
+            $scope.album.Albm_Name = ""
+            $scope.album.RelaeseDate = "";
+            $scope.album.Aritist_id = ""
+        }
+
+        $scope.deleteAlbum = function (album) {
+            var id = album.Albm_id;
+            var urlAlbum = 'http://localhost:8090/api/album';
+            dataService.deleteObject(urlAlbum, id).then(function (success) {
+
+                alert("Succesfully deleted");
+                getalbums(urlAlbum);
+            }, function (fail) {
+
+                alert(eror.message);
+            })
+
         }
 
     }])

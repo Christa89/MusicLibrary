@@ -5,7 +5,7 @@
 angular.module('app', ['ui.bootstrap' ,'ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers', 'naif.base64'])
 
   
-    .config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
+    .config(['$stateProvider', '$locationProvider' , function ($stateProvider, $locationProvider) {
 
  
         $stateProvider
@@ -38,7 +38,9 @@ angular.module('app', ['ui.bootstrap' ,'ui.router', 'app.filters', 'app.services
                 controller: 'Error404Ctrl'
             });
 
-        $locationProvider.html5Mode(true);
+
+       // $urlRouteProvider.otherwise('*path')
+       $locationProvider.html5Mode(true);
       
        // httpMethodInterceptorProvider.whitelistLocalRequests();
 

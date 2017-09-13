@@ -18,11 +18,11 @@ app.service('dataService', ['$http', function ($http) {
         return $http.post(urlBase, obj);
     };
 
-    this.updateObject = function (obj) {
-        return $http.put(urlBase + '/' + cust.ID, cust)
+    this.updateObject = function (urlBase,obj) {
+        return $http.put(urlBase + '/' + obj.ID, obj)
     };
 
-    this.deleteObject = function (id) {
+    this.deleteObject = function (urlBase,id) {
         return $http.delete(urlBase + '/' + id);
     };
 

@@ -1,5 +1,53 @@
 ﻿@{
     PageData["title"] = "MusicLibrary";
 }
-<h2>Welcome!</h2>
-<p>{{title}}</p>
+@*<h2>Welcome!</h2>
+<p>{{title}}</p>*@
+
+
+<div class="row">
+    <div class="col-md-offset-12">
+        <img src="~/Images/grid.png" width="50" height="50" ng-click="SetGrid()" />
+    </div>
+   
+   
+</div>
+<div class="row" ng-show="hide">
+    <div class="col-md-3" ng-repeat=" album in albums">
+        <div class="thumbnail">
+            <a href="/w3images/lights.jpg">
+                <img data-ng-src="data:image/png;base64,{{album.picture}}" alt="Lights" style="width:100%" width="150" height="75" />
+                <div class="caption">
+                    <p>{{album.Albm_Name}}</p>
+                    <p>{{album.tblArtist.Artist_Name}}</p>
+                    <p>{{album.RelaeseDate}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="!hide">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th ng-hide="true"> Id</th>
+                <th> Thuble</th>
+                <th> Album Name </th>
+                <th> Music Artist </th>
+                <th> Release Date </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="album in albums">
+                <td><img data-ng-src="data:image/png;base64,{{album.picture}}" alt="Lights" width="50" height="50" /></td>
+                <td ng-hide="true">{{album.Albm_id}}</td>
+                <td>{{album.Albm_Name}}</td>
+                <td>{{album.tblArtist.Artist_Name}}</td>
+                <td>{{album.RelaeseDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

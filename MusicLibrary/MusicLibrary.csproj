@@ -138,6 +138,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\delete.jpg" />
     <Content Include="Images\edit.png" />
+    <Content Include="Images\grid.png" />
     <Content Include="Images\jpg.jpg" />
     <Content Include="Images\load.gif" />
     <Content Include="Scripts\angular-loader.js" />
